@@ -7,23 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.3392613"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
-
     <Button
         android:id="@+id/alphabet2"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="C"
         android:textAllCaps="false"
@@ -31,27 +18,24 @@
         app:layout_constraintEnd_toStartOf="@+id/alphabet3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/alphabet"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet0"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="A"
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/alphabet"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="B"
         android:textAllCaps="false"
@@ -59,13 +43,12 @@
         app:layout_constraintEnd_toStartOf="@+id/alphabet2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/alphabet0"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet4"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="E"
         android:textAllCaps="false"
@@ -73,13 +56,12 @@
         app:layout_constraintEnd_toStartOf="@+id/alphabet5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/alphabet3"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet5"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="F"
         android:textAllCaps="false"
@@ -87,13 +69,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/alphabet4"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet3"
         android:layout_width="60dp"
         android:layout_height="68dp"
-        android:layout_marginTop="12dp"
         android:onClick="buttonClicked"
         android:text="D"
         android:textAllCaps="false"
@@ -101,7 +82,7 @@
         app:layout_constraintEnd_toStartOf="@+id/alphabet4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/alphabet2"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/mode" />
 
     <Button
         android:id="@+id/alphabet6"
@@ -112,8 +93,7 @@
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/alphabet7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/alphabet0" />
 
     <Button
@@ -190,8 +170,7 @@
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/alphabet13"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/alphabet6" />
 
     <Button
@@ -268,8 +247,7 @@
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/alphabet20"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/alphabet12" />
 
     <Button
@@ -361,6 +339,30 @@
         app:layout_constraintStart_toStartOf="@+id/alphabet22"
         app:layout_constraintTop_toBottomOf="@+id/alphabet22" />
 
+    <Button
+        android:id="@+id/mode"
+        android:layout_width="475dp"
+        android:layout_height="wrap_content"
+        android:onClick="ToggleMode"
+        android:text="Switch"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="A in lower case is a"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/to" />
+
     <TextView
         android:id="@+id/from"
         android:layout_width="wrap_content"
@@ -370,51 +372,34 @@
         android:textSize="72sp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/to"
+        app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <TextView
         android:id="@+id/to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
         android:alpha="1"
         android:fontFamily="monospace"
         android:text="a"
         android:textSize="72sp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintVertical_bias="0.409" />
 
-    <Button
-        android:id="@+id/mode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:onClick="ToggleMode"
-        android:text="Switch"
-        app:icon="@android:drawable/ic_popup_sync"
-        app:iconGravity="textStart"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/description"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="A in lower case is a"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/from" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
