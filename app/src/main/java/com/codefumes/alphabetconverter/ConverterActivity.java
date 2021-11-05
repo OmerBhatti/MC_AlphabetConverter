@@ -2,6 +2,7 @@ package com.codefumes.alphabetconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -63,6 +64,11 @@ public class ConverterActivity extends AppCompatActivity {
             toast.setGravity(Gravity.BOTTOM,0,0);
             toast.show();
         }
+    }
+
+    public void switchTestActivity(View v){
+        Intent intent = new Intent(ConverterActivity.this,TestActivity.class);
+        startActivity(intent);
     }
 
     public void ToggleMode(View v) {
