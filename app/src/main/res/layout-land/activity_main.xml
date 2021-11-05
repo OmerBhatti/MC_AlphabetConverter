@@ -5,7 +5,21 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ConverterActivity">
+
+    <Button
+        android:id="@+id/testButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        app:icon="@android:drawable/ic_menu_edit"
+        app:iconGravity="textStart"
+        app:iconTint="#FFFFFF"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="@+id/mode"
+        app:layout_constraintStart_toStartOf="@+id/mode"
+        app:layout_constraintTop_toBottomOf="@+id/mode"
+        app:strokeColor="#FFFFFF" />
 
     <Button
         android:id="@+id/alphabet5"
@@ -362,14 +376,14 @@
         android:id="@+id/from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="monospace"
         android:text="A"
         android:textSize="72sp"
         android:textStyle="bold"
         android:typeface="monospace"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -14,7 +14,7 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class ConverterActivity extends AppCompatActivity {
 
     boolean Capital = true;
     TextView to;
