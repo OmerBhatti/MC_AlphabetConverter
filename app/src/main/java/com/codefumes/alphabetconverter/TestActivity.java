@@ -2,11 +2,17 @@ package com.codefumes.alphabetconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class TestActivity extends AppCompatActivity {
@@ -15,13 +21,13 @@ public class TestActivity extends AppCompatActivity {
     int attempted = 0;
     int right = 0;
     int wrong = 0;
-    boolean alphabetCase = false;
+    boolean uppercase = false;
     Random random;
 
     char selectedCharacter,correctCharacter;
 
-    List<Button> options;
-    TextView rightTxt,wrongTxt,promptTxt, rightCharacter;
+    Button[] options = new Button[3];
+    TextView rightTxt,wrongTxt,promptTxt, rightCharacter , progressTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,36 +35,91 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         random = new Random();
-        options.add(findViewById(R.id.option1));
-        options.add(findViewById(R.id.option2));
-        options.add(findViewById(R.id.option3));
+        options[0]=(findViewById(R.id.option1));
+        options[1]=(findViewById(R.id.option2));
+        options[2]=(findViewById(R.id.option3));
 
-        rightTxt =findViewById(R.id.rightTxt);
-        wrongTxt =findViewById(R.id.wrongTxt);
-        promptTxt =findViewById(R.id.prompt);
+        rightTxt = findViewById(R.id.rightTxt);
+        wrongTxt = findViewById(R.id.wrongTxt);
+        promptTxt = findViewById(R.id.prompt);
         rightCharacter = findViewById(R.id.character);
+        progressTxt = findViewById(R.id.progress);
 
-        newCombination();
+        CreateNewMCQ();
+    }
+
+    public void validate(View view){
+        if(attempted <= totalMCQs) {
+            Button clickedOptionBtn = (Button) view;
+            selectedCharacter = clickedOptionBtn.getText().charAt(0);
+            if (uppercase) {
+                if (selectedCharacter == Character.toLowerCase(correctCharacter)) {
+                    right += 1;
+                    rightTxt.setText("Right " + Integer.toString(right));
+                } else {
+                    wrong += 1;
+                    wrongTxt.setText("Wrong " + Integer.toString(wrong));
+                }
+            } else {
+                if (selectedCharacter == Character.toUpperCase(correctCharacter)) {
+                    right += 1;
+                    rightTxt.setText("Right " + Integer.toString(right));
+                } else {
+                    wrong += 1;
+                    wrongTxt.setText("Wrong " + Integer.toString(wrong));
+                }
+            }
+            CreateNewMCQ();
+        }
+    }
+
+    private void CreateNewMCQ(){
+        if(attempted < totalMCQs) {
+            random = new Random();
+            uppercase = getRandomCase();
+            correctCharacter = getRandomCharacter(uppercase);
+            rightCharacter.setText(Character.toString(correctCharacter));
+            //reset button options
+            for (Button option : options) {
+                //put opposite case characters in button
+                option.setText(Character.toString(getRandomCharacter(!uppercase)));
+            }
+            int correctButtonIndex = random.nextInt(3);
+            if (uppercase) {
+                options[correctButtonIndex].setText(Character.toString(correctCharacter).toLowerCase(Locale.ROOT));
+            } else {
+                options[correctButtonIndex].setText(Character.toString(correctCharacter).toUpperCase(Locale.ROOT));
+            }
+            progressTxt.setText(Integer.toString(attempted) + "/" + Integer.toString(totalMCQs));
+            attempted++;
+        }
+        else{
+            Intent intent = new Intent(this,ResultActivity.class);
+            intent.putExtra("right",right);
+            intent.putExtra("wrong",wrong);
+            intent.putExtra("total",totalMCQs);
+            startActivity(intent);
+        }
     }
 
     private boolean getRandomCase(){
-        return random.nextBoolean();
-    }
-
-    private char getRandomCharacter(boolean uppercase){
-        if(uppercase){
-            return (char)(random.nextInt(26) + 'A');
+        boolean uppercaseLoc = random.nextBoolean();
+        if(uppercaseLoc){
+            promptTxt.setText("Choose Lower case of");
         }
         else{
-            return (char)(random.nextInt(26) + 'a');
+            promptTxt.setText("Choose Upper case of");
         }
+        return uppercaseLoc;
     }
 
-    private void newCombination(){
-        if(attempted <= totalMCQs){
-            alphabetCase = getRandomCase();
-            rightCharacter.setText(getRandomCharacter(alphabetCase));
+    private char getRandomCharacter(boolean uppercaseLoc) {
+        char c;
+        if(uppercaseLoc == true) {
+            c = (char) (random.nextInt(26) + 'A');
+        } else {
+            c = (char) (random.nextInt(26) + 'a');
         }
+        return c;
     }
-
 }

@@ -10,20 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlphabetConverter">
         <activity
-            android:name=".TestActivity"
-            android:exported="false" />
-        <activity
             android:name=".HomeScreen"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ConverterActivity"
-            android:exported="true"></activity>
+            android:exported="true"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+        </activity>
     </application>
 
 </manifest>

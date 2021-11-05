@@ -22,6 +22,7 @@ public class ConverterActivity extends AppCompatActivity {
     TextView from;
     TextView description;
     Toast toast;
+    Button testButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,13 @@ public class ConverterActivity extends AppCompatActivity {
         to = findViewById(R.id.to);
         from = findViewById(R.id.from);
         description = findViewById(R.id.description);
+        testButton = findViewById(R.id.testButton);
+
+        testButton.setOnClickListener(view -> {
+            Intent testIntent = new Intent(getApplicationContext(), TestActivity.class);
+            startActivity(testIntent);
+        });
+
     }
 
     public void buttonClicked(View v) {
@@ -64,11 +72,6 @@ public class ConverterActivity extends AppCompatActivity {
             toast.setGravity(Gravity.BOTTOM,0,0);
             toast.show();
         }
-    }
-
-    public void switchTestActivity(View v){
-        Intent intent = new Intent(ConverterActivity.this,TestActivity.class);
-        startActivity(intent);
     }
 
     public void ToggleMode(View v) {
