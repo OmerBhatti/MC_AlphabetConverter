@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ConverterActivity"
+            android:name=".PracticeActivity"
             android:exported="true"
             android:launchMode="singleTop">
         </activity>
