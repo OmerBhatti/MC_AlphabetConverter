@@ -30,6 +30,19 @@ public class TestActivity extends AppCompatActivity {
     TextView rightTxt,wrongTxt,promptTxt, rightCharacter , progressTxt;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        attempted = 0;
+        right = 0;
+        wrong = 0;
+
+        rightTxt.setText("Right " + Integer.toString(right));
+        wrongTxt.setText("Wrong " + Integer.toString(wrong));
+
+        CreateNewMCQ();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
@@ -44,8 +57,6 @@ public class TestActivity extends AppCompatActivity {
         promptTxt = findViewById(R.id.prompt);
         rightCharacter = findViewById(R.id.character);
         progressTxt = findViewById(R.id.progress);
-
-        CreateNewMCQ();
     }
 
     public void validate(View view){
