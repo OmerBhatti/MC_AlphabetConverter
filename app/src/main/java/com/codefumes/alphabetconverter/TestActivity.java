@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class TestActivity extends AppCompatActivity {
 
-    int totalMCQs = 10;
+    int totalMCQs = getRandom(new int[]{10, 15, 20});
     int attempted = 0;
     int right = 0;
     int wrong = 0;
@@ -132,5 +132,10 @@ public class TestActivity extends AppCompatActivity {
             c = (char) (random.nextInt(26) + 'a');
         }
         return c;
+    }
+
+    public static int getRandom(int[] array) {
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
     }
 }

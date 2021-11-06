@@ -38,8 +38,8 @@ public class ResultActivity extends AppCompatActivity {
         else if(right>5 && right<=8){
             remark = "Average :)";
         }
-        else if(right>8 && right<total){
-            remark = "Excellent";
+        else if(right>9 && right<=total){
+            remark = "Excellent !!";
         }
         remarkTxt.setText(remark);
 
